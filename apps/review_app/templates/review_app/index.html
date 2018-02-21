@@ -3,57 +3,78 @@
 <head>
 	{% load static %}
 	<meta charset="utf-8">
-	<title>Welcome</title>
+	<title>Book Reviewer</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" href="{% static 'review_app/css/style.css' %}">
 </head>
 <body class="container">
-	<h1>Welcome!</h1>
-	<div class="register">
-		{% for error in errors %}
-			{{error}}
-		{% endfor %}
-		<h4>Register</h4>
-		<form action="/register" method="post">
-			{% csrf_token %}
-			<label for="name">Name:</label>
-			<input type="text" name="name"> 
-			<br>
-			<br>
-			<label for="alias">Alias:</label>
-			<input type="text" name="alias"> 
-			<br>
-			<br>
-			<label for="email">Email:</label>
-			<input type="text" name="email">
-			<br>
-			<br>
-			<label for="password">Password:</label>
-			<input type="password" name="password"> 
-			<p>*Password should be at least 8 characters</p>
-			<br>
-			<label for="conf_password">Confirm pw:</label>
-			<input type="password" name="conf_password"> 				
-			<br>
-			<br>
-			<input type="submit" name="submit" value="Register">
-		</form>
+	<div class="row head">
+		<h2>Book Reviewer</h2>
 	</div>
-	<br>
-	<div class="login">
-		<h4>Login</h4>
-		<form action="/login" method="post">
-			{% csrf_token %}
-			<label for="email">Email:</label>
-			<input type="text" name="email">
-			<br>
-			<br>
-			<label for="password">Password:</label>
-			<input type="password" name="password">
-			<br>
-			<br>
-			<input type="submit" name="submit" value="Login">
-		</form>
-	</div>	
+	<div class="row text-center">
+		<p>Welcome! At Book Reviewer you will be able review some of your favorite (or in some cases least favorite) books.  You can also see reviews that other users have left on books you may be interested in reading. Come on in and share your thoughts with the world!</p>		
+	</div>
+	<div class="row">
+		<div class="col-lg-6 col-md-6 col-sm-12">
+			<div class="register">
+				{% for error in errors %}
+				<ul>
+					<li><font color="red">{{error}}</font></li>
+				</ul>
+				{% endfor %}
+				<h4>Register</h4>
+				<table class="">
+					<form action="/register" method="post">
+						{% csrf_token %}
+						<tr>
+							<td><label for="name">Name:</label></td>
+							<td><input type="text" name="name"></td>
+						</tr>
+						<tr>
+							<td><label for="alias">Alias:</label></td>
+							<td><input type="text" name="alias"></td>
+						</tr>
+						<tr>
+							<td><label for="email">Email:</label></td>
+							<td><input type="text" name="email"></td>
+						</tr>
+						<tr>
+							<td><label for="password">Password:</label></td>
+							<td><input type="password" name="password"></td>
+						</tr>
+							<tr><td colspan="3"><small>Password should be at least 8 characters</small></td></tr>
+						<tr>
+							<td><label for="conf_password">Confirm pw:</label></td>
+							<td><input type="password" name="conf_password"></td>
+						</tr>	
+						<tr>
+							<td colspan="2" class="text-center button"><input type="submit" name="submit" value="Register"></td>
+						</tr>
+					</form>
+				</table>
+			</div>
+		</div>
+		<div class="col-lg-6 col-md-6 col-sm-12">
+			<div class="login">
+				<h4>Login</h4>
+				<table class="">
+					<form action="/login" method="post">
+						{% csrf_token %}
+					<tr>
+						<td><label for="email">Email:</label></td>
+						<td><input type="text" name="email"></td>
+					</tr>
+					<tr>
+						<td><label for="password">Password:</label></td>
+						<td><input type="password" name="password"></td>
+					</tr>
+					<tr>
+						<td colspan="2" class="text-center button"><input type="submit" name="submit" value="Login"></td>
+					</tr>
+					</form>
+				</table>
+			</div>
+		</div>
+	</div>
 </body>
 </html>

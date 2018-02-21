@@ -73,12 +73,17 @@ class User(models.Model):
 	updated_at = models.DateTimeField(auto_now=True)
 	objects = UserManager()
 
+
 class Author(models.Model):
 	name = models.CharField(max_length=255)
 
 class Book(models.Model):
 	title = models.CharField(max_length=255)
 	author = models.ForeignKey(Author, related_name="books")
+
+
+
+
 
 
 

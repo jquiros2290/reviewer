@@ -1,3 +1,65 @@
+
 .side{
 	overflow: scroll;
+}
+
+.head {
+	padding: 20px;
+}
+
+table td input {
+	margin-left: 5px;
+}
+
+table label {
+	font-size: 20px;
+}
+
+.button {
+	padding-top: 15px;
+}
+
+.header {
+	padding: 20px 20px 50px 20px;
+	display: inline;
+
+}
+	.header h2 {
+		display: inline;
+	}
+
+	.header ul {
+		float: right;
+		vertical-align: top;
+		display: inline;
+	}
+	.header ul li{
+		list-style-type: none;
+		display: inline;
+		margin-left: 30px;
+	}
+
+.main-reviews p {
+	text-indent: 30px;
+}
+
+
+.main-reviews h4{
+	margin-bottom: 30px;
+}
+
+.side-reviews {
+	padding-top: 10px;
+	border: solid 1px;
+	overflow: scroll;
+	height: 300px;
+}
+
+.side-reviews h4{
+	margin-bottom: 5px;
+	text-indent: 20px;
+}
+
+.review {
+	margin-bottom: 50px;
 }

@@ -93,7 +93,7 @@ def user(request, user_id):
 
 	for book in unique_ids:
 		unique_books.append(Book.objects.get(id=book['book']))
-
+ 
 	context = {
 		'user': user,
 		'unique_book_reviews': unique_books

@@ -8,29 +8,40 @@
 	<link rel="stylesheet" type="text/css" href="{% static 'review_app/css/style.css' %}">
 </head>
 <body class="container">
-	<h1>Welcome, {{request.session.name}}</h1>
-	<br>
-	<a href="books/add">Add Book and Review</a>
-	<br>
-	<a href="/logout">Logout</a>
-	</div>
-	<div class="main">
-	<h3>Recent Book Reviews:</h3>
-		{% for review in recent %}
-		<div class="review">
-			<h2><a href="/books/{{review.book.id}}">{{ review.book.title }}</a></h2>
-			<p>Rating: {{ review.rating }}</p>
-			<p><a href="/user/{{review.reviewer.id}}">{{ review.reviewer.name}}</a> says: {{ review.review }}</p>
-			<p>Posted on: {{ review.created_at }}</p>
+	<div class="row">
+		<div class="col-lg-12 col-md-12 col-sm-12 header">
+			<h2>Welcome, {{request.session.name}}</h2>
+			<ul>
+				<li><a href="books/add">Add Book and Review</a></li>
+				<li><a href="/logout">Logout</a></li>
+			</ul>
 		</div>
-		{% endfor %}
-		 <div class="side">
-            <h2>Other Books with Reviews:</h2>
-            {% for review in more %}
-            <div class="review">
-                <h4><a href="/books/{{review.book.id}}">{{ review.book.title }}</a></h4>
-            </div>
-            {% endfor %}
+	</div>
+	<div class="row">
+		<div class="col-lg-6 col-md-6 col-sm-12">
+			<div class="main-reviews">
+				<h4>Recent Book Reviews:</h4>
+				{% for review in recent %}
+				<div class="review">
+
+					<h5><a href="/books/{{review.book.id}}">{{ review.book.title }}</a></h5>
+					<p>Rating: {{ review.rating }}</p>
+					<p><a href="/user/{{review.reviewer.id}}">{{ review.reviewer.name}}</a> says: {{ review.review }}</p>
+					<p>Posted on: {{ review.created_at }}</p>
+				</div>
+				{% endfor %}
+			</div>
+		</div>
+		<div class="col-lg-6 col-md-6 col-sm-12">
+	            <h4>Other Books with Reviews:</h4>
+				<div class="side-reviews">
+		            {% for review in more %}
+		            <div class="">
+		                <h4><a href="/books/{{review.book.id}}">{{ review.book.title }}</a></h4>
+		            </div>
+	            	{% endfor %}
+	            </div>
+	        </div>
         </div>
 	</div>
 </body>
